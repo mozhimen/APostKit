@@ -1,8 +1,8 @@
 package com.mozhimen.postk.test
 
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import android.content.Intent
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.postk.test.databinding.ActivityPostkLinkBinding
 
 /**

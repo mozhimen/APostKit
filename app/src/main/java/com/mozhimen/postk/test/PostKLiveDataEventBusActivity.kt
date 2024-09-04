@@ -1,8 +1,8 @@
 package com.mozhimen.postk.test
 
 import android.os.Bundle
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.utilk.android.widget.showToast
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.postk.livedata.PostKLiveData
 import com.mozhimen.postk.test.databinding.ActivityPostkLiveDataEventBusBinding
 

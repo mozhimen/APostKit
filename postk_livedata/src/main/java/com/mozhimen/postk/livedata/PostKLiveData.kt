@@ -1,8 +1,8 @@
 package com.mozhimen.postk.livedata
 
 import androidx.lifecycle.*
-import com.mozhimen.basick.elemk.androidx.lifecycle.sticky.MutableLiveDataSticky
-import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
+import com.mozhimen.kotlin.elemk.androidx.lifecycle.sticky.MutableLiveDataSticky
+import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
 import java.util.concurrent.ConcurrentHashMap
 
 /**
