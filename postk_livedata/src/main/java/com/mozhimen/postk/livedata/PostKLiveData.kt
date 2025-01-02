@@ -6,6 +6,9 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.mozhimen.kotlin.elemk.androidx.lifecycle.sticky.MutableLiveDataSticky
 import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
+import com.mozhimen.postk.basic.commons.IPostK
+import com.mozhimen.postk.basic.commons.IPostKProvider
+import com.mozhimen.postk.livedata.PostKLiveData.MutableEventLiveDataSticky
 import java.util.concurrent.ConcurrentHashMap
 
 /**
@@ -18,7 +21,7 @@ import java.util.concurrent.ConcurrentHashMap
  * @Date 2022/2/6 16:53
  * @Version 1.0
  */
-class PostKLiveData {
+class PostKLiveData : IPostK<MutableEventLiveDataSticky<*>> {
     companion object {
         @JvmStatic
         val instance = INSTANCE.holder
@@ -28,7 +31,15 @@ class PostKLiveData {
 
     private val _eventLiveDataMap = ConcurrentHashMap<String, MutableEventLiveDataSticky<*>>()
 
-    private inner class InnerLifecycleEventObserver(private val _name: String) :
+    /////////////////////////////////////////////////////////////////////////////////////
+
+    @Suppress(CSuppress.UNCHECKED_CAST)
+    override fun <T> with(eventName: String): MutableEventLiveDataSticky<T> =
+        _eventLiveDataMap.getOrPut(eventName) { MutableEventLiveDataSticky<T>(eventName) } as MutableEventLiveDataSticky<T>
+
+    /////////////////////////////////////////////////////////////////////////////////////
+
+    internal inner class InnerLifecycleEventObserver(private val _name: String) :
         LifecycleEventObserver {
         override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
             if (event == Lifecycle.Event.ON_DESTROY)
@@ -36,23 +47,9 @@ class PostKLiveData {
         }
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////
-
-    @Suppress(CSuppress.UNCHECKED_CAST)
-    fun <T> with(eventName: String): MutableLiveDataSticky<T> {
-        var liveData = _eventLiveDataMap[eventName]
-        if (liveData == null) {
-            liveData = MutableEventLiveDataSticky<T>(eventName)
-            _eventLiveDataMap[eventName] = liveData
-        }
-        return liveData as MutableEventLiveDataSticky<T>
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////
-
-    inner class MutableEventLiveDataSticky<T>(private val _name: String) : MutableLiveDataSticky<T>() {
+    inner class MutableEventLiveDataSticky<T>(override val eventName: String) : MutableLiveDataSticky<T>(), IPostKProvider<T> {
         override fun observeSticky(owner: LifecycleOwner, observer: Observer<in T>) {
-            owner.lifecycle.addObserver(InnerLifecycleEventObserver(_name))
+            owner.lifecycle.addObserver(InnerLifecycleEventObserver(eventName))
             super.observeSticky(owner, observer)
         }
     }

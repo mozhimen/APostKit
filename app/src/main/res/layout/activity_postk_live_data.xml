@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data />
+    <data/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,15 +10,9 @@
         android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/utilk_data_bus_msg_btn"
             style="@style/BasicKStyle_Btn"
-            android:onClick="goPostKLiveData"
-            android:text="goPostKLiveData"
-            tools:ignore="HardcodedText,UsingOnClickInXml" />
-
-        <com.google.android.material.button.MaterialButton
-            style="@style/BasicKStyle_Btn"
-            android:onClick="goPostKFlow"
-            android:text="goPostKFlow"
-            tools:ignore="HardcodedText,UsingOnClickInXml" />
+            android:text="即时消息发送"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 </layout>

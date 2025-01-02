@@ -21,9 +21,17 @@ dependencyResolutionManagement {
 
 rootProject.name = "APostKit"
 include ':app'
+include ':postk_livedata'
 //SwiftKit
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
 include ':SwiftKit:basick'
+include ':SwiftKit:bindk'
 include ':SwiftKit:xmlk'
-include ':postk_livedata'
+//KUtilKit
+include ':KUtilKit'
+project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
+include ':KUtilKit:utilk_android'
+include ':KUtilKit:utilk_kotlin'
+include ':postk_flow'
+include ':postk_basic'

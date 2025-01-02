@@ -14,8 +14,10 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="BasicKStyle_Btn" parent="StyleK_MaterialBtn">
+    <style name="BasicKStyle_Btn">
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
         <item name="android:layout_marginHorizontal" tools:targetApi="o">20dp</item>
     </style>
 </resources>

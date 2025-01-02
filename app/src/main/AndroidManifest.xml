@@ -16,9 +16,17 @@
         <!-- postk -->
         <activity
             android:name=".PostKActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PostKLiveDataActivity"
             android:exported="false" />
         <activity
-            android:name=".PostKLiveDataEventBusActivity"
+            android:name=".PostKFlowActivity"
             android:exported="false" />
         <activity
             android:name=".PostKLinkActivity"

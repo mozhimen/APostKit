@@ -38,8 +38,10 @@ android {
 
 dependencies {
     implementation project(':SwiftKit:basick')
+    implementation project(':SwiftKit:bindk')
     implementation project(':SwiftKit:xmlk')
     implementation project(':postk_livedata')
+    implementation project(':postk_flow')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
