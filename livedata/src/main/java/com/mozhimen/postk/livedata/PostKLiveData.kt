@@ -4,7 +4,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import com.mozhimen.kotlin.elemk.androidx.lifecycle.sticky.MutableLiveDataSticky
+import com.mozhimen.kotlin.elemk.androidx.lifecycle.impls.sticky.MutableLiveDataSticky
 import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
 import com.mozhimen.postk.basic.commons.IPostK
 import com.mozhimen.postk.basic.commons.IPostKProvider
