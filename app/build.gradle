@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace 'com.mozhimen.postk.test'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.mozhimen.postk.test"
